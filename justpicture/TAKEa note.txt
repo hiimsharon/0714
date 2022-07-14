@@ -2,15 +2,39 @@
 <html>
 <head>
   <title>start!</title>
+<style>
+#div1, #div2 { float: left; width: 100px; height: 35px; margin: 10px; padding: 10px; border: 1px solid black; }
+</style>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
 </head>
 
+<body>
 
 <label for="datemin">Enter a date after 2000-01-01:</label>
-  <input type="date" id="datemin" name="datemin" min="2020-07-14"><br><br>
+<input type="date" id="datemin" name="datemin" min="2020-07-14"><br><br>
 <input type="submit" value="Submit">
 
+<p>Drag the EGGGimage into the rectangle:</p>
 
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+  <img src="egg.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="200" height="150">
+</div>
 
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 
 </body>
 </html>
