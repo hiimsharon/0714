@@ -1,0 +1,16 @@
+<!DOCTYPE>
+<html>
+<head>
+  <title>start!</title>
+</head>
+
+
+<label for="datemin">Enter a date after 2000-01-01:</label>
+  <input type="date" id="datemin" name="datemin" min="2020-07-14"><br><br>
+<input type="submit" value="Submit">
+
+
+
+
+</body>
+</html>
